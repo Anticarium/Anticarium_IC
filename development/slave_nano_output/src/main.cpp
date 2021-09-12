@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include "AnticariumSlave.h"
+#include "AnticariumSlaveOutput.h"
 
 void setup()
 {
