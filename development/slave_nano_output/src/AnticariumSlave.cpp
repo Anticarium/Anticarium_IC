@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-void dataReceived(int byteAmount)
+void onDataReceived(int byteAmount)
 {
   uint8_t buffer[2] = {};
 

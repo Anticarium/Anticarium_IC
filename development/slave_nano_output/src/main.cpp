@@ -5,7 +5,7 @@
 void setup()
 {
   Wire.begin(0);
-  Wire.onReceive(dataReceived);
+  Wire.onReceive(onDataReceived);
   pinMode(PinType::LED_PIN, OUTPUT);
   pinMode(PinType::VENT_PIN, OUTPUT);
   pinMode(PinType::HEAT_PIN, OUTPUT);

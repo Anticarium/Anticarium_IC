@@ -8,4 +8,4 @@ enum PinType
   WATER_PIN,
 };
 
-void dataReceived(int byteAmount);
+void onDataReceived(int byteAmount);
