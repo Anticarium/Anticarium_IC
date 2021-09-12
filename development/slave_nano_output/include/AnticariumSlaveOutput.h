@@ -1,4 +1,5 @@
 #pragma once
+#include <stdint.h>
 
 enum PinType
 {
@@ -7,5 +8,7 @@ enum PinType
   HEAT_PIN,
   WATER_PIN,
 };
+
+const uint8_t I2C_ADDRESS = 0;
 
 void onDataReceived(int byteAmount);

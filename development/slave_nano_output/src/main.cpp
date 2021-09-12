@@ -4,7 +4,7 @@
 
 void setup()
 {
-  Wire.begin(0);
+  Wire.begin(I2C_ADDRESS);
   Wire.onReceive(onDataReceived);
   pinMode(PinType::LED_PIN, OUTPUT);
   pinMode(PinType::VENT_PIN, OUTPUT);
