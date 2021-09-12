@@ -13,8 +13,16 @@ void DataReader::setup()
 
 void DataReader::read()
 {
-    temperature = dht.readTemperature();
-    humidity = dht.readHumidity();
+    float newTemperature = dht.readTemperature();
+    if(!isnan(newTemperature)){
+        temperature = newTemperature;
+    } 
+    
+    float newHumidity = dht.readHumidity();
+    if(!isnan(newHumidity)) {
+        humidity = newHumidity;
+    }
+    
     uint16_t sensorValue = analogRead(A0);
     moisture = sensorValue * (100.0f / 1023.0f);
 }
