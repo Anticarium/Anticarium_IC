@@ -5,5 +5,5 @@
 - ADD: `development/slave_nano_input` ATMega328P code prototype for later conversion to ATTiny25 code
 - ADD: `development/slave_nano_output` ATMega328P code prototype for later conversion to ATTiny24a code
 - ADD: README about `development` folder. Includes circuit drawing
-- ADD: Project README describing communication of MCUs in this project
+- ADD: Project README, describing communication of MCUs in this project
 - ADD: VERSION file
