@@ -3,10 +3,10 @@
 
 enum PinType
 {
-  LED_PIN = 5,
-  VENT_PIN,
-  HEAT_PIN,
-  WATER_PIN,
+  LED_PIN = 2,
+  VENT_PIN = 3,
+  HEAT_PIN = 9,
+  WATER_PIN = 10
 };
 
 void setup() {
@@ -16,10 +16,27 @@ void setup() {
 
 uint8_t x = 0;
 void loop() {
+  static bool flag = false;
   Wire.beginTransmission(0);
-  Wire.write(static_cast<uint8_t>(5));
+  Wire.write(static_cast<uint8_t>(PinType::VENT_PIN));
   Wire.write(x);
   Wire.endTransmission();
+  delay(100);
+  Wire.beginTransmission(0);
+  Wire.write(static_cast<uint8_t>(PinType::LED_PIN));
+  Wire.write(x);
+  Wire.endTransmission();
+  delay(100);
+  Wire.beginTransmission(0);
+  Wire.write(static_cast<uint8_t>(PinType::HEAT_PIN));
+  Wire.write(flag);
+  Wire.endTransmission();
+  delay(100);
+  Wire.beginTransmission(0);
+  Wire.write(static_cast<uint8_t>(PinType::WATER_PIN));
+  Wire.write(flag);
+  Wire.endTransmission();
+  flag = !flag;
   x+=10;
 
   delay(1000);
