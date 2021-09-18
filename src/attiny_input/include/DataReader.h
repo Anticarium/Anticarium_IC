@@ -17,5 +17,5 @@ private:
     int16_t humidity = 0;
     int16_t moisture = 0;
 
-    const uint8_t ANALOG_PIN = 1;
+    const uint8_t ANALOG_PIN = 2;
 };

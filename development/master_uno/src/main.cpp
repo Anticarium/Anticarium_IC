@@ -51,8 +51,8 @@ void loop() {
   uint8_t dataType = buffer[0];
 
   int16_t value = 0;
-  value = buffer[1] << 8;
-  value |= buffer[2];
+  value = buffer[2] << 8;
+  value |= buffer[1];
 
   Serial.print("DataType: ");
   Serial.println(static_cast<char>(dataType));
