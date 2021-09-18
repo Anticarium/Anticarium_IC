@@ -1,4 +1,5 @@
 # Anticarium_IC
+- ADD: `src/attiny_output` working ATTiny24a code
 
 ## 0.0.1
 - ADD: `development/master_uno` for sending and receiving test I2C messages
