@@ -29,7 +29,7 @@ void DataReader::read()
     }
 
     // returns analog value ranging 0 - 1023
-    moisture = analogRead(A0);
+    moisture = analogRead(ANALOG_PIN);
 }
 
 int16_t DataReader::getTemperature() const
