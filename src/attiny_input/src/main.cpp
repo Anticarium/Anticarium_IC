@@ -10,5 +10,5 @@ void setup()
 
 void loop()
 {
-  dataReader.read();
+  TinyWireS_stop_check();
 }

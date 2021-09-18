@@ -5,5 +5,6 @@ DataReader dataReader;
 
 void onRequestData()
 {
+    dataReader.read();
     anticariumSlaveInput.sendData(dataReader);
 }
