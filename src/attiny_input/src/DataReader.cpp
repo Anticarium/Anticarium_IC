@@ -1,34 +1,28 @@
 #include "DataReader.h"
 #include "Fixtures.h"
-#include "DHT.h"
 
-DataReader::DataReader()
+DataReader::DataReader(uint8_t dhtPin, uint8_t dhtType, uint8_t analogPin) : dht(dhtPin, dhtType), ANALOG_PIN(analogPin)
 {
 }
 
 void DataReader::setup()
 {
-    DHT_Setup();
+    dht.begin();
     pinMode(ANALOG_PIN, INPUT);
 }
 
 void DataReader::read()
 {
-    uint8_t dhtData[4] = {};
-    DHT_Status_t dhtStatus = DHT_ReadRaw(dhtData);
-
-    if (dhtStatus == DHT_Status_t::DHT_Ok)
-    {
-        int16_t *convertedData = nullptr;
-
-        convertedData = static_cast<int16_t *>(static_cast<void *>(&dhtData));
-        temperature = *convertedData;
-
-        convertedData = static_cast<int16_t *>(static_cast<void *>(&dhtData + 2));
-        humidity = *convertedData;
+    int16_t newTemperature = dht.readTemperature();
+    if(newTemperature != BAD_TEMP){
+        temperature = newTemperature;
+    } 
+    
+    int16_t newHumidity = dht.readHumidity();
+    if(newHumidity != BAD_HUM) {
+        humidity = newHumidity;
     }
-
-    // returns analog value ranging 0 - 1023
+    
     moisture = analogRead(ANALOG_PIN);
 }
 

@@ -1,5 +1,6 @@
 #include "AnticariumSlaveInput.h"
 #include "Fixtures.h"
+#include <Wire.h>
 
 AnticariumSlaveInput::AnticariumSlaveInput()
 {
@@ -7,8 +8,8 @@ AnticariumSlaveInput::AnticariumSlaveInput()
 
 void AnticariumSlaveInput::setup()
 {
-    TinyWireS.begin(I2C_ADDRESS);
-    TinyWireS.onRequest(onRequestData);
+    Wire.begin(I2C_ADDRESS);
+    Wire.onRequest(onRequestData);
 }
 
 void AnticariumSlaveInput::sendData(const DataReader &dataReader)
@@ -38,11 +39,8 @@ void AnticariumSlaveInput::sendData(const DataReader &dataReader)
     break;
     }
 
-    uint8_t * dividedData = static_cast<uint8_t *>(static_cast<void *>(&value));
-
-    TinyWireS.send(DATA_TYPE[dataTypeIterator]);
-    TinyWireS.send(dividedData[0]);
-    TinyWireS.send(dividedData[1]);
+    Wire.write(DATA_TYPE[dataTypeIterator]);
+    Wire.write(static_cast<uint8_t *>(static_cast<void *>(&value)), 2);
 
     ++dataTypeIterator;
     if (dataTypeIterator == 3)

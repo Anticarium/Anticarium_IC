@@ -6,3 +6,4 @@ extern AnticariumSlaveInput anticariumSlaveInput;
 extern DataReader dataReader;
 
 void onRequestData();
+void read();

@@ -39,7 +39,7 @@ void loop() {
   flag = !flag;
   x+=10;
 
-  delay(1000);
+  delay(3000);
 
   Wire.requestFrom(1, 3);    // request 6 bytes from slave device #8
 
@@ -59,6 +59,4 @@ void loop() {
   Serial.print("Value: ");
   Serial.println(value);
   Serial.println();
-
-  delay(1000);
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include "DataReader.h"
-#include "TinyWireS.h"
 
 class AnticariumSlaveInput
 {
