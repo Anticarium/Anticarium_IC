@@ -94,5 +94,6 @@ _In development_
 
 In `development` folder, you can find circuit that is similar to the circuit shown above. The `development` folder is used for prototyping main circuit and code for ATTinys, using more advanced microcontrollers that are easier to debug.     
 
+## Instructions for ATTiny85
 
-
+In default ATTiny85 does not work with DHT11 humidity/temperature sensor, because it operates in default 1MHZ preset frequency. To change that, you have to set ATTiny internal oscillator to 16MHZ using fuses. Correct fuse values are already provided in `src/attiny_input/platformio.ini` and you can use platformio set fuses command.   

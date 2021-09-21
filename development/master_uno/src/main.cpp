@@ -39,7 +39,7 @@ void loop() {
   flag = !flag;
   x+=10;
 
-  delay(1000);
+  delay(3000);
 
   Wire.requestFrom(1, 3);    // request 6 bytes from slave device #8
 
@@ -51,14 +51,12 @@ void loop() {
   uint8_t dataType = buffer[0];
 
   int16_t value = 0;
-  value = buffer[1] << 8;
-  value |= buffer[2];
+  value = buffer[2] << 8;
+  value |= buffer[1];
 
   Serial.print("DataType: ");
   Serial.println(static_cast<char>(dataType));
   Serial.print("Value: ");
   Serial.println(value);
   Serial.println();
-
-  delay(1000);
 }
