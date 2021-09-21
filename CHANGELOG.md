@@ -1,5 +1,6 @@
 # Anticarium_IC
 
+## 1.0.0
 - MODIFY: README.md updated with instructions for `attiny_input`
 - ADD: `src/attiny_input` working ATTiny85 code
 - ADD: `src/attiny_output` working ATTiny24a code

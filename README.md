@@ -13,6 +13,8 @@
     - [Development attiny circuit](#development-attiny-circuit)
     - [Main circuit](#main-circuit)
   - [`development` folder](#development-folder)
+  - [Instructions for ATTiny85](#instructions-for-attiny85)
+
 
 <!-- /code_chunk_output -->
 
