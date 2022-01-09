@@ -1,5 +1,6 @@
 # Anticarium_IC
 
+## 1.0.1
 - MODIFY: Increased PWM frequency from 61Hz to 3.91KHz for output MCU
 - MODIFY: Send 4 byte float values to i2c from input MCU
 - MODIFY: Switch to DHT22 from DHT11 for input MCU
