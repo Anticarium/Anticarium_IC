@@ -1,7 +1,7 @@
 #include "Fixtures.h"
 
 AnticariumSlaveInput anticariumSlaveInput;
-DataReader dataReader(4, 11, 3);
+DataReader dataReader(DHT22, DHTPin, AnalogPin);
 
 void onRequestData()
 {
@@ -10,9 +10,9 @@ void onRequestData()
 
 void read()
 {
-    static unsigned long previousTime = millis();
-    unsigned long currentTime = millis();
-    if (currentTime - previousTime >= 1000)
+    auto previousTime = millis();
+    auto currentTime = millis();
+    if (currentTime - previousTime >= ReadTimeout)
     {
         dataReader.read();
         previousTime = currentTime;

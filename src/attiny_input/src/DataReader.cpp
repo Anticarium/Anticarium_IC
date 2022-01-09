@@ -1,42 +1,46 @@
 #include "DataReader.h"
 #include "Fixtures.h"
 
-DataReader::DataReader(uint8_t dhtPin, uint8_t dhtType, uint8_t analogPin) : dht(dhtPin, dhtType), ANALOG_PIN(analogPin)
+DataReader::DataReader(uint8_t dhtPin, uint8_t dhtType, uint8_t analogPin)
+    : dht(dhtPin, dhtType),
+      analogPin(analogPin)
 {
 }
 
 void DataReader::setup()
 {
     dht.begin();
-    pinMode(ANALOG_PIN, INPUT);
+    pinMode(analogPin, INPUT);
 }
 
 void DataReader::read()
 {
-    int16_t newTemperature = dht.readTemperature();
-    if(newTemperature != BAD_TEMP){
+    auto newTemperature = dht.readTemperature();
+    if (!isnan(newTemperature))
+    {
         temperature = newTemperature;
-    } 
-    
-    int16_t newHumidity = dht.readHumidity();
-    if(newHumidity != BAD_HUM) {
+    }
+
+    auto newHumidity = dht.readHumidity();
+    if (!isnan(newHumidity))
+    {
         humidity = newHumidity;
     }
-    
-    moisture = analogRead(ANALOG_PIN);
+
+    moisture = analogRead(analogPin);
 }
 
-int16_t DataReader::getTemperature() const
+float DataReader::getTemperature() const
 {
     return temperature;
 }
 
-int16_t DataReader::getHumidity() const
+float DataReader::getHumidity() const
 {
     return humidity;
 }
 
-int16_t DataReader::getMoisture() const
+float DataReader::getMoisture() const
 {
     return moisture;
 }
