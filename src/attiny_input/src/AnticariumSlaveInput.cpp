@@ -6,15 +6,15 @@ AnticariumSlaveInput::AnticariumSlaveInput()
 {
 }
 
-void AnticariumSlaveInput::setup()
+void AnticariumSlaveInput::setup(uint8_t i2cAddress)
 {
-    Wire.begin(I2C_ADDRESS);
+    Wire.begin(i2cAddress);
     Wire.onRequest(onRequestData);
 }
 
 void AnticariumSlaveInput::sendData(const DataReader &dataReader)
 {
-    int16_t value = 0;
+    float value = 0;
 
     switch (dataTypeIterator)
     {
@@ -39,11 +39,11 @@ void AnticariumSlaveInput::sendData(const DataReader &dataReader)
     break;
     }
 
-    Wire.write(DATA_TYPE[dataTypeIterator]);
-    Wire.write(static_cast<uint8_t *>(static_cast<void *>(&value)), 2);
+    Wire.write(dataType[dataTypeIterator]);
+    Wire.write(reinterpret_cast<uint8_t *>(&value), sizeof(float));
 
     ++dataTypeIterator;
-    if (dataTypeIterator == 3)
+    if (dataTypeIterator == sizeof(dataType))
     {
         dataTypeIterator = 0;
     }

@@ -4,7 +4,7 @@
 void setup()
 {
   dataReader.setup();
-  anticariumSlaveInput.setup();
+  anticariumSlaveInput.setup(I2CAddress);
   dataReader.read();
 }
 

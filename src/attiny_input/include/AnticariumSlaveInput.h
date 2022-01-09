@@ -5,11 +5,11 @@ class AnticariumSlaveInput
 {
 public:
     AnticariumSlaveInput();
-    void sendData(const DataReader & dataReader);
-    void setup();
+    void sendData(const DataReader &dataReader);
+    void setup(uint8_t i2cAddress);
+
 private:
-    const uint8_t I2C_ADDRESS = 1;
-    const uint8_t DATA_TYPE[3] = {'t', 'h', 'm'};
+    const uint8_t dataType[3] = {'t', 'h', 'm'};
 
     uint8_t dataTypeIterator = 0;
 };
