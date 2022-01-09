@@ -4,12 +4,12 @@
 
 enum PinType
 {
-  LED_PIN = 2,
-  VENT_PIN = 3,
-  HEAT_PIN = 9,
-  WATER_PIN = 10
+  Led = 2,
+  Fan = 3,
+  Heat = 9,
+  Water = 10
 };
 
-const uint8_t I2C_ADDRESS = 0;
+const uint8_t i2cAddress = 0;
 
 void onDataReceived(int byteAmount);

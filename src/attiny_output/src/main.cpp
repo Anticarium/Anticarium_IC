@@ -3,17 +3,21 @@
 
 void setup()
 {
-  Wire.begin(I2C_ADDRESS);
+  Wire.begin(i2cAddress);
   Wire.onReceive(onDataReceived);
-  pinMode(PinType::LED_PIN, OUTPUT);
-  pinMode(PinType::VENT_PIN, OUTPUT);
-  pinMode(PinType::HEAT_PIN, OUTPUT);
-  pinMode(PinType::WATER_PIN, OUTPUT);
+  pinMode(Led, OUTPUT);
+  pinMode(Fan, OUTPUT);
+  pinMode(Heat, OUTPUT);
+  pinMode(Water, OUTPUT);
 
-  digitalWrite(PinType::LED_PIN, LOW);
-  digitalWrite(PinType::VENT_PIN, LOW);
-  digitalWrite(PinType::HEAT_PIN, LOW);
-  digitalWrite(PinType::WATER_PIN, LOW);
+  digitalWrite(Led, LOW);
+  digitalWrite(Fan, LOW);
+  digitalWrite(Heat, LOW);
+  digitalWrite(Water, LOW);
+
+  // TCCR0B – Timer/Counter Control Register B
+  // Set no timer prescaling for faster PWM
+  TCCR0B &= 0b11111000 | 0b1;
 }
 
 void loop()
