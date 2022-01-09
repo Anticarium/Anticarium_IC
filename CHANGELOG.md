@@ -1,8 +1,9 @@
 # Anticarium_IC
 
-- MODIFY: Send 4 byte float values to i2c
-- MODIFY: Switch to DHT22 from DHT11
-- MODIFY: Use DHT.h instead of TinyDHT.h for DHT readings 
+- MODIFY: Increased PWM frequency from 61Hz to 3.91KHz for output MCU
+- MODIFY: Send 4 byte float values to i2c from input MCU
+- MODIFY: Switch to DHT22 from DHT11 for input MCU
+- MODIFY: Use DHT.h instead of TinyDHT.h for DHT readings for input MCU
 
 ## 1.0.0
 - MODIFY: README.md updated with instructions for `attiny_input`
