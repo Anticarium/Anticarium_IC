@@ -1,5 +1,6 @@
 # Anticarium_IC
 
+- MODIFY: Send 4 byte float values to i2c
 - MODIFY: Switch to DHT22 from DHT11
 - MODIFY: Use DHT.h instead of TinyDHT.h for DHT readings 
 
