@@ -1,11 +1,11 @@
 #pragma once
 #include <stdint.h>
-#include <Arduino.h>
 
 enum PinType
 {
   Led = 2,
-  Fan = 3,
+  Fan_Pwm = 3,
+  Fan_IO = 8,
   Heat = 9,
   Water = 10
 };
