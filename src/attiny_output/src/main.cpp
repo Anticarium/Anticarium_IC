@@ -1,4 +1,5 @@
 #include <Wire.h>
+#include <Arduino.h>
 #include "AnticariumSlaveOutput.h"
 
 void setup()
@@ -6,12 +7,14 @@ void setup()
   Wire.begin(i2cAddress);
   Wire.onReceive(onDataReceived);
   pinMode(Led, OUTPUT);
-  pinMode(Fan, OUTPUT);
+  pinMode(Fan_Pwm, OUTPUT);
+  pinMode(Fan_IO, OUTPUT);
   pinMode(Heat, OUTPUT);
   pinMode(Water, OUTPUT);
 
   digitalWrite(Led, LOW);
-  digitalWrite(Fan, LOW);
+  digitalWrite(Fan_Pwm, LOW);
+  digitalWrite(Fan_IO, LOW);
   digitalWrite(Heat, LOW);
   digitalWrite(Water, LOW);
 

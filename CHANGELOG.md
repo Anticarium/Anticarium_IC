@@ -1,5 +1,7 @@
 # Anticarium_IC
 
+- ADD: `FAN_IO` pin 8 to completely enable or disable fan
+
 ## 1.0.1
 - MODIFY: Increased PWM frequency from 61Hz to 3.91KHz for output MCU
 - MODIFY: Send 4 byte float values to i2c from input MCU

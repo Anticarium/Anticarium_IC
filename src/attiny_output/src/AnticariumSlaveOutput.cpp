@@ -1,5 +1,6 @@
-#include "AnticariumSlaveOutput.h"
 #include <Wire.h>
+#include <Arduino.h>
+#include "AnticariumSlaveOutput.h"
 
 void onDataReceived(int byteAmount)
 {
@@ -13,11 +14,11 @@ void onDataReceived(int byteAmount)
   auto pinType = buffer[0];
   auto value = buffer[1];
 
-  if (pinType == Led || pinType == Fan)
+  if (pinType == Led || pinType == Fan_Pwm)
   {
     analogWrite(pinType, value);
   }
-  else if (pinType == Water || pinType == Heat)
+  else if (pinType == Water || pinType == Heat || pinType == Fan_IO)
   {
     digitalWrite(pinType, value);
   }
