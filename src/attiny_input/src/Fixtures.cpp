@@ -10,8 +10,8 @@ void onRequestData()
 
 void read()
 {
-    auto previousTime = millis();
-    auto currentTime = millis();
+    static auto previousTime = millis();
+    const auto currentTime = millis();
     if (currentTime - previousTime >= ReadTimeout)
     {
         dataReader.read();

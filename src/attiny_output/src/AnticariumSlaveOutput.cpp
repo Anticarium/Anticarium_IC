@@ -11,8 +11,8 @@ void onDataReceived(int byteAmount)
     buffer[i] = Wire.read();
   }
 
-  auto pinType = buffer[0];
-  auto value = buffer[1];
+  const auto pinType = buffer[0];
+  const auto value = buffer[1];
 
   if (pinType == Led || pinType == Fan_Pwm)
   {
