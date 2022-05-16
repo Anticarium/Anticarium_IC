@@ -1,7 +1,7 @@
 #include "DataReader.h"
 #include "Fixtures.h"
 
-DataReader::DataReader(uint8_t dhtPin, uint8_t dhtType, uint8_t analogPin)
+DataReader::DataReader(uint8_t dhtType, uint8_t dhtPin, uint8_t analogPin)
     : dht(dhtPin, dhtType),
       analogPin(analogPin)
 {
@@ -15,13 +15,13 @@ void DataReader::setup()
 
 void DataReader::read()
 {
-    auto newTemperature = dht.readTemperature();
+    const auto newTemperature = dht.readTemperature();
     if (!isnan(newTemperature))
     {
         temperature = newTemperature;
     }
 
-    auto newHumidity = dht.readHumidity();
+    const auto newHumidity = dht.readHumidity();
     if (!isnan(newHumidity))
     {
         humidity = newHumidity;

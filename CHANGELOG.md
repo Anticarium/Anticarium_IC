@@ -1,5 +1,6 @@
 # Anticarium_IC
 
+- MODIFY: Set heat output to HIGH at the start of the output IC, so heat gets turned off at the start using PNP transistor
 - ADD: `FAN_IO` pin 8 to completely enable or disable fan
 
 ## 1.0.1

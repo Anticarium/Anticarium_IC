@@ -15,7 +15,11 @@ void setup()
   digitalWrite(Led, LOW);
   digitalWrite(Fan_Pwm, LOW);
   digitalWrite(Fan_IO, LOW);
-  digitalWrite(Heat, LOW);
+  
+  // Relay for heat uses PNP transistor for switching, so 
+  // to turn off heat at the start we have to set the pin HIGH
+  digitalWrite(Heat, HIGH);
+
   digitalWrite(Water, LOW);
 
   // TCCR0B – Timer/Counter Control Register B
